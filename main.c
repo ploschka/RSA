@@ -10,10 +10,10 @@ int main()
     unsigned int seed = time(NULL);
     rsa_generate_keys(seed, public, private);
     int64_t message = 65;
-    int64_t em = rsa_encrypt(public, message);
+    uint64_t em = rsa_encrypt(public, message);
     int64_t dm = rsa_decrypt(private, em);
 
     printf("message = %ld\n", message);
-    printf("encrypted message = %ld\n", em);
+    printf("encrypted message = %lu\n", em);
     printf("decrypted message = %ld\n", dm);
 }

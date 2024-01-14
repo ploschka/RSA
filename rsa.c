@@ -43,12 +43,12 @@ void rsa_generate_keys(unsigned int seed, rsa_key_t *public, rsa_key_t *private)
     private->n = n;
 }
 
-int64_t rsa_encrypt(rsa_key_t *public, int64_t message)
+uint64_t rsa_encrypt(rsa_key_t *public, int64_t message)
 {
     return exp_mod(message, public->k, public->n);
 }
 
-int64_t rsa_decrypt(rsa_key_t *private, int64_t message)
+int64_t rsa_decrypt(rsa_key_t *private, uint64_t message)
 {
     return exp_mod(message, private->k, private->n);
 }
